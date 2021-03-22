@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.navdrawertest.R
 
-class GalleryFragment : Fragment() {
+class DetailFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var detailViewModel: DetailViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-                ViewModelProvider(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+        detailViewModel =
+                ViewModelProvider(this).get(DetailViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_detail, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        detailViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
