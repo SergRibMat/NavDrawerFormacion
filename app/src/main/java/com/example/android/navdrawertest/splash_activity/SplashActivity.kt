@@ -1,6 +1,7 @@
-package com.example.android.navdrawertest
+package com.example.android.navdrawertest.splash_activity
 
 import android.os.Bundle
+import com.example.android.navdrawertest.home_activity.MainActivity
 import com.example.android.navdrawertest.commons.BaseActivity
 import com.example.android.navdrawertest.databinding.ActivitySplashBinding
 import org.jetbrains.anko.startActivity

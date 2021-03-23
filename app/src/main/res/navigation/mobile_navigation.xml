@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.android.navdrawertest.ui.home.HomeFragment"
+        android:name="com.example.android.navdrawertest.home_activity.home.ui.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/nav_detail"
-        android:name="com.example.android.navdrawertest.ui.gallery.DetailFragment"
+        android:name="com.example.android.navdrawertest.home_activity.detail.ui.DetailFragment"
         android:label="@string/menu_detail"
         tools:layout="@layout/fragment_detail" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.android.navdrawertest.ui.slideshow.ProfileFragment"
+        android:name="com.example.android.navdrawertest.home_activity.profile.ui.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

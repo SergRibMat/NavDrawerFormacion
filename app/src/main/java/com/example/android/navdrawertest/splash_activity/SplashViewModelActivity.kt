@@ -1,4 +1,4 @@
-package com.example.android.navdrawertest
+package com.example.android.navdrawertest.splash_activity
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope

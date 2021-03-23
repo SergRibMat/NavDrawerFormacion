@@ -1,16 +1,9 @@
-package com.example.android.navdrawertest.ui.gallery
+package com.example.android.navdrawertest.home_activity.detail.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.example.android.data.models.PokemonStats
-import com.example.android.data.models.PokemonType
-import com.example.android.navdrawertest.R
 import com.example.android.navdrawertest.commons.BaseFragment
 import com.example.android.navdrawertest.commons.fromStatsToString
 import com.example.android.navdrawertest.commons.fromTypesListToString

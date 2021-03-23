@@ -1,4 +1,4 @@
-package com.example.android.navdrawertest.ui.home
+package com.example.android.navdrawertest.home_activity.home
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.data.models.PokemonDTO
-import com.example.android.data.models.PokemonType
 import com.example.android.navdrawertest.commons.fromTypesListToString
 import com.example.android.navdrawertest.commons.printImageWithGlide
 import com.example.android.navdrawertest.databinding.ItemPokemonBinding

@@ -1,20 +1,18 @@
-package com.example.android.navdrawertest.ui.home
+package com.example.android.navdrawertest.home_activity.home.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.android.data.models.PokemonDTO
 import com.example.android.navdrawertest.R
 import com.example.android.navdrawertest.commons.BaseFragment
 import com.example.android.navdrawertest.databinding.FragmentHomeBinding
+import com.example.android.navdrawertest.home_activity.home.AdapterPokemonGrid
+import com.example.android.navdrawertest.home_activity.home.CellClickListener
+import com.example.android.navdrawertest.home_activity.home.vm.HomeViewModel
 import com.example.android.navdrawertest.utils.SharedPokemonVM
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

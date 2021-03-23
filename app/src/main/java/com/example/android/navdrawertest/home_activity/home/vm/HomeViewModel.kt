@@ -1,8 +1,6 @@
-package com.example.android.navdrawertest.ui.home
+package com.example.android.navdrawertest.home_activity.home.vm
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.android.data.models.PokemonDTO
 import com.example.android.data.repositories.PokemonRepository
 import com.example.android.navdrawertest.commons.BaseViewModel
