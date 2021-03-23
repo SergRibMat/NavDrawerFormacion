@@ -25,7 +25,7 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
 
     override fun onBindViewHolder(holder: AdapterPokemonGrid.ViewHolder, position: Int) {
         mValues?.let {
-            holder.tvName.text = "Name: ${it[position].name}"
+            holder.tvName.text = "Name:\n${it[position].name}"
 
             val types = fromTypesListToString(it[position].types)
             holder.tvSpecie.text = "Type:$types"
