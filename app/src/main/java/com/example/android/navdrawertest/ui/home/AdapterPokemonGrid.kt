@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.data.models.PokemonDTO
 import com.example.android.data.models.PokemonType
+import com.example.android.navdrawertest.commons.fromTypesListToString
 import com.example.android.navdrawertest.commons.printImageWithGlide
 import com.example.android.navdrawertest.databinding.ItemPokemonBinding
 
@@ -24,9 +25,10 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
 
     override fun onBindViewHolder(holder: AdapterPokemonGrid.ViewHolder, position: Int) {
         mValues?.let {
-            holder.tvName.text = it[position].name
+            holder.tvName.text = "Name: ${it[position].name}"
 
-            holder.tvSpecie.text = fromPokemonTypeListToString(it[position].types)
+            val types = fromTypesListToString(it[position].types)
+            holder.tvSpecie.text = "Stats: \n$types"
 
             holder.tvWeight.text = "${it[position].weight} KG"
 
@@ -54,14 +56,6 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
         val emptyList = listOf<PokemonDTO>()
         mValues = emptyList
         notifyItemRangeRemoved(0, 0)
-    }
-
-    fun fromPokemonTypeListToString(list: List<PokemonType>): String{
-        var str: String = ""
-        list.forEach {
-            str += "${it.type.name} "
-        }
-        return str
     }
 }
 

@@ -46,15 +46,16 @@ class HomeFragment : BaseFragment(), CellClickListener {
         Toast.makeText(context, "${presenter.showError.value}", Toast.LENGTH_SHORT).show()
     }
 
-    fun loadObservers(){
+    override fun loadObservers(){
 
         presenter.pokemonDTOList.observe(viewLifecycleOwner, {
             adapter = AdapterPokemonGrid(it, this, requireContext())
             binding.photosGrid.adapter = adapter
-            it.forEach {
-                Log.i("Mensage", "${it.name} ${it.weight} ${it.image.image}")
-            }
         })
+    }
+
+    override fun loadListeners() {
+
     }
 
     override fun onCellClickListener(pokemon: PokemonDTO) {

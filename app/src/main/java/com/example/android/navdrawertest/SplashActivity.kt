@@ -22,10 +22,7 @@ class SplashActivity: BaseActivity() {
 
         setContentView(binding.root)
 
-
         presenter.loadPokemonIntoDatabase()
-
-
 
     }
 
@@ -36,16 +33,5 @@ class SplashActivity: BaseActivity() {
                 finish()
             }
         })
-
-        presenter.showMessage.observe(this, {
-            showToast(this, it)
-        })
-
-        presenter.showError.observe(this, {
-            showToast(this, it)
-        })
     }
-
-
-
 }

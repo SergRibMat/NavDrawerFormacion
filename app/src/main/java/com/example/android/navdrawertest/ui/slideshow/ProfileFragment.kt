@@ -1,6 +1,7 @@
 package com.example.android.navdrawertest.ui.slideshow
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.android.data.models.ProfileData
 import com.example.android.navdrawertest.R
 import com.example.android.navdrawertest.commons.BaseFragment
+import com.example.android.navdrawertest.commons.emptyString
 import com.example.android.navdrawertest.databinding.FragmentProfileBinding
+import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileFragment : BaseFragment() {
@@ -29,6 +33,28 @@ class ProfileFragment : BaseFragment() {
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun loadObservers() {
+        presenter.profileData.observe(viewLifecycleOwner, {
+            it?.apply {
+                binding.tvName.text = "Name: $name"
+                binding.tvSurnameOne.text = "Surname One: $surnameOne"
+                binding.tvSurnameTwo.text = "Surname Two: $surnameTwo"
+                binding.tvPostalAddress.text = "Postal Address: $postalAddress"
+            }
+
+        })
+    }
+
+    override fun loadListeners() {
+        binding.btnSave.setOnClickListener {
+            val name = binding.etName.text.toString().emptyString()
+            val surnameOne = binding.etSurnameOne.text.toString().emptyString()
+            val surnameTwo = binding.etSurnameTwo.text.toString().emptyString()
+            val postalAddress = binding.etPostalAdress.text.toString().emptyString()
+            presenter.saveProfileData(ProfileData(1, name, surnameOne, surnameTwo, postalAddress))
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

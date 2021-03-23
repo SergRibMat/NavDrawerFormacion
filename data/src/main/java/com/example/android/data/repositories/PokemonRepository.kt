@@ -1,5 +1,6 @@
 package com.example.android.data.repositories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.android.data.commons.BaseRepository
 import com.example.android.data.local.PokemonDatabase
@@ -33,8 +34,6 @@ class PokemonRepository(private val api: IPokemonAPI, private val pokemonDB: Pok
 
                     //Save data in Room
                     pokemonDB.pokemonDatabaseDao().savePokemon(it)
-
-
                 }
                 //It is not necessary to return nothing, magic is done with liveData in Room
                 return ResultHandler.Success("Successful update")
@@ -50,6 +49,7 @@ class PokemonRepository(private val api: IPokemonAPI, private val pokemonDB: Pok
     }
 
     fun saveProfileData(profileData: ProfileData){
+        Log.i("Mensage", "Name:  ${profileData.name}")
         pokemonDB.pokemonDatabaseDao().saveProfileData(profileData)
     }
 

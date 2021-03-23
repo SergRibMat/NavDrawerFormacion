@@ -12,6 +12,8 @@ import com.example.android.data.models.PokemonStats
 import com.example.android.data.models.PokemonType
 import com.example.android.navdrawertest.R
 import com.example.android.navdrawertest.commons.BaseFragment
+import com.example.android.navdrawertest.commons.fromStatsToString
+import com.example.android.navdrawertest.commons.fromTypesListToString
 import com.example.android.navdrawertest.commons.printImageWithGlide
 import com.example.android.navdrawertest.databinding.FragmentDetailBinding
 import com.example.android.navdrawertest.utils.SharedPokemonVM
@@ -37,6 +39,14 @@ class DetailFragment : BaseFragment() {
         return binding.root
     }
 
+    override fun loadObservers() {
+
+    }
+
+    override fun loadListeners() {
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val pokemon = sharedPokemonVM.pokemon.value
@@ -48,31 +58,12 @@ class DetailFragment : BaseFragment() {
             binding.tvOrder.text = "Pokedex order: ${it.order.toString()}"
             binding.tvWeight.text = "Weight: ${it.weight}"
             val types = fromTypesListToString(it.types)
-            binding.tvTypes.text = "Type: $types"
+            binding.tvTypes.text = "Type:\n $types"
             val stats = fromStatsToString(it.stats)
-            binding.tvStats.text = "Stats: $stats"
+            binding.tvStats.text = "Stats: \n $stats"
 
         }
     }
 
-    fun fromTypesListToString(list: List<PokemonType>): String{
-        var str = ""
 
-        list.forEach {
-            str += "${it.type.name} "
-        }
-
-        return str
-    }
-
-    fun fromStatsToString(list: List<PokemonStats>): String{
-        var str = ""
-
-        list.forEach {
-            str += "${it.stat.name}: ${it.baseStat}\n"
-
-        }
-
-        return str
-    }
 }
