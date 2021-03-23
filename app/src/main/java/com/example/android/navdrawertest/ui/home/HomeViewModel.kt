@@ -9,10 +9,6 @@ import com.example.android.navdrawertest.commons.BaseViewModel
 
 class HomeViewModel(private val repository: PokemonRepository) : BaseViewModel() {
 
-
-
     val pokemonDTOList: LiveData<List<PokemonDTO>> = repository.pokemonList
-
-
 
 }
