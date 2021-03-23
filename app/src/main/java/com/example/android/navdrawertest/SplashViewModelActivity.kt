@@ -16,13 +16,11 @@ class SplashViewModelActivity(private val repository: PokemonRepository): BaseVi
         get() = _initMyActivity
 
     fun loadPokemonIntoDatabase(){
-
             viewModelScope.launch(Dispatchers.IO) {
                 for (id in 1..40) {
                 when (val result = repository.getPokemonsAndSave(id)) {
                     is ResultHandler.Success -> {
                         showMessage(result.data)
-
                     }
                     else -> {
                         setShowError(result)
@@ -31,14 +29,7 @@ class SplashViewModelActivity(private val repository: PokemonRepository): BaseVi
                     if (id == 20){
                         _initMyActivity.postValue(true)
                     }
-
             }
-
-
         }
-
-
     }
-
-
 }
