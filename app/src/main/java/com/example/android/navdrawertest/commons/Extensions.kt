@@ -1,4 +1,3 @@
 package com.example.android.navdrawertest.commons
 
-class Extensions {
-}
+fun String.emptyString(): String = if (this.isNullOrEmpty()) "No data" else this

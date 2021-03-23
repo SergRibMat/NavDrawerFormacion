@@ -3,11 +3,16 @@ package com.example.android.navdrawertest.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android.data.models.PokemonDTO
+import com.example.android.data.repositories.PokemonRepository
+import com.example.android.navdrawertest.commons.BaseViewModel
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val repository: PokemonRepository) : BaseViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+
+
+    val pokemonDTOList: LiveData<List<PokemonDTO>> = repository.pokemonList
+
+
+
 }
