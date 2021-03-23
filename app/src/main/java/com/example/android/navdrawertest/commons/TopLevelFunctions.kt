@@ -22,7 +22,7 @@ fun fromTypesListToString(list: List<PokemonType>): String{
     var str = ""
 
     list.forEach {
-        str += "${it.type.name} "
+        str += "\n- ${it.type.name} "
     }
 
     return str
@@ -32,7 +32,7 @@ fun fromStatsToString(list: List<PokemonStats>): String{
     var str = ""
 
     list.forEach {
-        str += "${it.stat.name}: ${it.baseStat}\n"
+        str += "\n- ${it.stat.name}: ${it.baseStat}\n"
 
     }
 

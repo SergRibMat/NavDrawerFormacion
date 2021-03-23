@@ -28,7 +28,7 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
             holder.tvName.text = "Name: ${it[position].name}"
 
             val types = fromTypesListToString(it[position].types)
-            holder.tvSpecie.text = "Stats: \n$types"
+            holder.tvSpecie.text = "Type:$types"
 
             holder.tvWeight.text = "${it[position].weight} KG"
 

@@ -42,8 +42,6 @@ class HomeFragment : BaseFragment(), CellClickListener {
 
         loadObservers()
 
-        Toast.makeText(context, "${presenter.showMessage.value}", Toast.LENGTH_SHORT).show()
-        Toast.makeText(context, "${presenter.showError.value}", Toast.LENGTH_SHORT).show()
     }
 
     override fun loadObservers(){

@@ -58,9 +58,9 @@ class DetailFragment : BaseFragment() {
             binding.tvOrder.text = "Pokedex order: ${it.order.toString()}"
             binding.tvWeight.text = "Weight: ${it.weight}"
             val types = fromTypesListToString(it.types)
-            binding.tvTypes.text = "Type:\n $types"
+            binding.tvTypes.text = "Type:$types"
             val stats = fromStatsToString(it.stats)
-            binding.tvStats.text = "Stats: \n $stats"
+            binding.tvStats.text = "Stats: $stats"
 
         }
     }
