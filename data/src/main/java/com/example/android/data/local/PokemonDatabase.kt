@@ -13,26 +13,26 @@ import com.example.android.data.utils.PokemonTypeConverter
 
 @Database(entities = [PokemonDTO::class, ProfileData::class], version = 2)
 @TypeConverters(PokemonStatsConverter::class, PokemonTypeConverter::class)
-abstract class PokemonDatabase: RoomDatabase() {
+abstract class PokemonDatabase : RoomDatabase() {
     abstract fun pokemonDatabaseDao(): PokemonDatabaseDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: PokemonDatabase? = null
 
         fun getInstance(context: Context): PokemonDatabase =
-            INSTANCE ?: synchronized(this){
-                INSTANCE ?: buildDatabase(context.applicationContext).also {
-                    INSTANCE = it
+                INSTANCE ?: synchronized(this) {
+                    INSTANCE ?: buildDatabase(context.applicationContext).also {
+                        INSTANCE = it
+                    }
                 }
-            }
 
-        private fun buildDatabase(appContext: Context): PokemonDatabase{
+        private fun buildDatabase(appContext: Context): PokemonDatabase {
             return Room.databaseBuilder(appContext, PokemonDatabase::class.java,
-                Constants.DATABASE_NAME
+                    Constants.DATABASE_NAME
             )
-                .fallbackToDestructiveMigration()
-                .build()
+                    .fallbackToDestructiveMigration()
+                    .build()
         }
     }
 }

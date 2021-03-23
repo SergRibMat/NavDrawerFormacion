@@ -9,7 +9,7 @@ import com.example.android.data.models.ProfileData
 import com.example.android.data.remote.IPokemonAPI
 import com.example.android.data.remote.ResultHandler
 
-class PokemonRepository(private val api: IPokemonAPI, private val pokemonDB: PokemonDatabase): BaseRepository() {
+class PokemonRepository(private val api: IPokemonAPI, private val pokemonDB: PokemonDatabase) : BaseRepository() {
 
     val pokemonList: LiveData<List<PokemonDTO>> by lazy {
         pokemonDB.pokemonDatabaseDao().loadPokemons()
@@ -19,7 +19,6 @@ class PokemonRepository(private val api: IPokemonAPI, private val pokemonDB: Pok
     val profileData: LiveData<ProfileData> by lazy {
         pokemonDB.pokemonDatabaseDao().loadProfileData()
     }
-
 
 
     //API
@@ -42,15 +41,11 @@ class PokemonRepository(private val api: IPokemonAPI, private val pokemonDB: Pok
             is ResultHandler.HttpError -> return result
             is ResultHandler.NetworkError -> return result
         }
-
-
-
-
     }
 
-    fun saveProfileData(profileData: ProfileData){
+
+    fun saveProfileData(profileData: ProfileData) {
         Log.i("Mensage", "Name:  ${profileData.name}")
         pokemonDB.pokemonDatabaseDao().saveProfileData(profileData)
     }
-
 }

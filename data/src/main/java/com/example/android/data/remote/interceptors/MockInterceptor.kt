@@ -22,26 +22,26 @@ class MockInterceptor(private val application: Application) : Interceptor {
         // TRANSACTIONS
         if (res == null) res =
 
-            getMockResponse("/pokemon.json", R.raw.pokemon, chain, responseCodeOK)
+                getMockResponse("/pokemon.json", R.raw.pokemon, chain, responseCodeOK)
 
         return res ?: chain.proceed(chain.request())
     }
 
     private fun getMockResponse(
-        urlContains: String,
-        jsonResource: Int,
-        chain: Interceptor.Chain,
-        responseCode: Int
+            urlContains: String,
+            jsonResource: Int,
+            chain: Interceptor.Chain,
+            responseCode: Int
     ): Response? {
         return getMockResponse(null, urlContains, jsonResource, chain, responseCode)
     }
 
     private fun getMockResponse(
-        method: String?,
-        urlContains: String,
-        jsonResource: Int,
-        chain: Interceptor.Chain,
-        responseCode: Int
+            method: String?,
+            urlContains: String,
+            jsonResource: Int,
+            chain: Interceptor.Chain,
+            responseCode: Int
     ): Response? {
         if (method != null && !method.equals(chain.request().method, true)) {
             return null
@@ -69,29 +69,29 @@ class MockInterceptor(private val application: Application) : Interceptor {
     }
 
     private fun returnMockResponse(
-        chain: Interceptor.Chain,
-        responseCode: Int,
-        responseString: String
+            chain: Interceptor.Chain,
+            responseCode: Int,
+            responseString: String
     ): Response {
         return Response.Builder()
-            .protocol(Protocol.HTTP_1_0)
-            .code(responseCode)
-            .request(chain.request())
-            .message(responseString)
-            .body(
-                responseString.toByteArray()
-                    .toResponseBody("application/json".toMediaTypeOrNull())
-            )
-            .addHeader("content-type", "application/json")
-            .build()
+                .protocol(Protocol.HTTP_1_0)
+                .code(responseCode)
+                .request(chain.request())
+                .message(responseString)
+                .body(
+                        responseString.toByteArray()
+                                .toResponseBody("application/json".toMediaTypeOrNull())
+                )
+                .addHeader("content-type", "application/json")
+                .build()
 
     }
 
     private fun returnMockResponse(
-        chain: Interceptor.Chain,
-        responseCode: Int,
-        resource: Int,
-        app: Application
+            chain: Interceptor.Chain,
+            responseCode: Int,
+            resource: Int,
+            app: Application
     ): Response? {
         val responseString = getStringFromResource(resource, app)
         return returnMockResponse(chain, responseCode, responseString)

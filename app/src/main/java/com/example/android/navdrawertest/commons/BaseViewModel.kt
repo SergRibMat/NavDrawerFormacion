@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.android.data.remote.ResultHandler
 import com.example.android.navdrawertest.utils.SingleLiveEvent
 
-abstract class BaseViewModel: ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
     private var _showMessage = SingleLiveEvent<String>()
     val showMessage: LiveData<String>
@@ -15,12 +15,12 @@ abstract class BaseViewModel: ViewModel() {
     val showError: LiveData<String>
         get() = _showError
 
-    fun showMessage(text: String){
+    fun showMessage(text: String) {
         _showMessage.postValue(text)
     }
 
-    fun setShowError(resultHandler: ResultHandler<Any>){
-        when (resultHandler){
+    fun setShowError(resultHandler: ResultHandler<Any>) {
+        when (resultHandler) {
             is ResultHandler.NetworkError -> {
                 _showError.postValue("Constants.NETWORK_ERROR")
             }

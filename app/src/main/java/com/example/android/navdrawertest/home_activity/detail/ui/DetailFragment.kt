@@ -22,23 +22,25 @@ class DetailFragment : BaseFragment() {
     private val binding get() = _binding!!
 
 
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+
     override fun loadObservers() {
 
     }
 
+
     override fun loadListeners() {
 
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,15 +50,12 @@ class DetailFragment : BaseFragment() {
             binding.tvBaseExperience.text = "Base Experience: ${it.baseExperience}"
             printImageWithGlide(requireContext(), it.image.image, binding.ivPokemonImage)
             binding.tvHeight.text = "Height: ${it.height}"
-            binding.tvOrder.text = "Pokedex order: ${it.order.toString()}"
+            binding.tvOrder.text = "Pokedex order: ${it.order}"
             binding.tvWeight.text = "Weight: ${it.weight}"
             val types = fromTypesListToString(it.types)
             binding.tvTypes.text = "Type:$types"
             val stats = fromStatsToString(it.stats)
             binding.tvStats.text = "Stats: $stats"
-
         }
     }
-
-
 }

@@ -10,14 +10,14 @@ abstract class BaseRepository {
     //Function to return data or error
     suspend inline fun <T : Any> safeApiCall(call: () -> Response<T>): ResultHandler<T> {
 
-        return try{
+        return try {
             val response = call.invoke()
             if (response.isSuccessful)
                 ResultHandler.Success(response.body()!!)
             else {
                 ResultHandler.HttpError(response.code(), response.message())
             }
-        }catch (throwable: Throwable){
+        } catch (throwable: Throwable) {
             when (throwable) {
                 is IOException -> ResultHandler.NetworkError
                 is HttpException -> {

@@ -12,12 +12,10 @@ class ProfileViewModel(private val repository: PokemonRepository) : BaseViewMode
 
     val profileData: LiveData<ProfileData> = repository.profileData
 
-    fun saveProfileData(profileData: ProfileData){
+
+    fun saveProfileData(profileData: ProfileData) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.saveProfileData(profileData)
         }
-
     }
-
-
 }

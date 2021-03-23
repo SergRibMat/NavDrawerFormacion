@@ -10,15 +10,16 @@ import com.example.android.navdrawertest.R
 
 
 fun printImageWithGlide(context: Context, img: String, imgView: ImageView) =
-    Glide.with(context)
-        .load(img)
-        .apply(
-            RequestOptions()
-            .placeholder(R.drawable.loading_animation)
-            .error(R.drawable.ic_broken_image))
-        .into(imgView)
+        Glide.with(context)
+                .load(img)
+                .apply(
+                        RequestOptions()
+                                .placeholder(R.drawable.loading_animation)
+                                .error(R.drawable.ic_broken_image)
+                )
+                .into(imgView)
 
-fun fromTypesListToString(list: List<PokemonType>): String{
+fun fromTypesListToString(list: List<PokemonType>): String {
     var str = ""
 
     list.forEach {
@@ -28,7 +29,7 @@ fun fromTypesListToString(list: List<PokemonType>): String{
     return str
 }
 
-fun fromStatsToString(list: List<PokemonStats>): String{
+fun fromStatsToString(list: List<PokemonStats>): String {
     var str = ""
 
     list.forEach {

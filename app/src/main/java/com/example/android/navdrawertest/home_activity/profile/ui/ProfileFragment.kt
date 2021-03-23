@@ -15,19 +15,22 @@ class ProfileFragment : BaseFragment() {
 
     private val presenter: ProfileViewModel by viewModel()
 
+
     private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     override fun loadObservers() {
         presenter.profileData.observe(viewLifecycleOwner, {
@@ -37,9 +40,9 @@ class ProfileFragment : BaseFragment() {
                 binding.tvSurnameTwo.text = "Surname Two: $surnameTwo"
                 binding.tvPostalAddress.text = "Postal Address: $postalAddress"
             }
-
         })
     }
+
 
     override fun loadListeners() {
         binding.btnSave.setOnClickListener {
@@ -51,9 +54,5 @@ class ProfileFragment : BaseFragment() {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-
-    }
 }

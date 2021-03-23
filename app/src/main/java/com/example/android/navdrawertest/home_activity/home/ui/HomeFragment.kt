@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.android.data.models.PokemonDTO
 import com.example.android.navdrawertest.R
 import com.example.android.navdrawertest.commons.BaseFragment
 import com.example.android.navdrawertest.databinding.FragmentHomeBinding
-import com.example.android.navdrawertest.home_activity.home.AdapterPokemonGrid
-import com.example.android.navdrawertest.home_activity.home.CellClickListener
 import com.example.android.navdrawertest.home_activity.home.vm.HomeViewModel
 import com.example.android.navdrawertest.utils.SharedPokemonVM
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -42,7 +40,7 @@ class HomeFragment : BaseFragment(), CellClickListener {
 
     }
 
-    override fun loadObservers(){
+    override fun loadObservers() {
 
         presenter.pokemonDTOList.observe(viewLifecycleOwner, {
             adapter = AdapterPokemonGrid(it, this, requireContext())

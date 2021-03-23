@@ -17,10 +17,10 @@ import java.util.concurrent.TimeUnit
 
 fun provideOkHttpClient(mockInterceptor: Interceptor?): OkHttpClient {
     val client = OkHttpClient().newBuilder()
-        .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(60, TimeUnit.SECONDS)
-    if (BuildConfig.FLAVOR == "mock"){
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+    if (BuildConfig.FLAVOR == "mock") {
         mockInterceptor?.let {
             client.addInterceptor(mockInterceptor)
         }
@@ -28,29 +28,35 @@ fun provideOkHttpClient(mockInterceptor: Interceptor?): OkHttpClient {
     return client.build()
 }
 
+
 fun provideMockInterceptor(application: Application): Interceptor {
     return MockInterceptor(application)
 }
 
+
 fun provideGson(): Gson {
     return GsonBuilder()
-        .setLenient()
-        .serializeNulls()
-        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-        .create()
+            .setLenient()
+            .serializeNulls()
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+            .create()
 }
 
-fun provideRetrofit(httpClient: OkHttpClient, gson: Gson): Retrofit = Retrofit.Builder()
-    .client(httpClient)
-    .baseUrl(BuildConfig.BaseURL)
-    .addConverterFactory(GsonConverterFactory.create(gson))
-    .build()
 
-fun providePokemonApi (retrofit: Retrofit): IPokemonAPI = retrofit
-    .create(IPokemonAPI::class.java)
+fun provideRetrofit(httpClient: OkHttpClient, gson: Gson): Retrofit = Retrofit.Builder()
+        .client(httpClient)
+        .baseUrl(BuildConfig.BaseURL)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+
+
+fun providePokemonApi(retrofit: Retrofit): IPokemonAPI = retrofit
+        .create(IPokemonAPI::class.java)
+
 
 fun providePokemonDatabase(application: Application): PokemonDatabase {
     return PokemonDatabase.getInstance(application)
 }
+
 
 fun providePokemonRepository(retrofit: IPokemonAPI, pokemonDB: PokemonDatabase): PokemonRepository = PokemonRepository(retrofit, pokemonDB)

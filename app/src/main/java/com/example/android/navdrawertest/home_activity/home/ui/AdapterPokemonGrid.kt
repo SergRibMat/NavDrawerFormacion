@@ -1,4 +1,4 @@
-package com.example.android.navdrawertest.home_activity.home
+package com.example.android.navdrawertest.home_activity.home.ui
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,16 +13,16 @@ import com.example.android.navdrawertest.databinding.ItemPokemonBinding
 class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
                          private val cellClickListener: CellClickListener,
                          private val context: Context
-): RecyclerView.Adapter<AdapterPokemonGrid.ViewHolder>() {
+) : RecyclerView.Adapter<AdapterPokemonGrid.ViewHolder>() {
 
     private lateinit var binding: ItemPokemonBinding
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterPokemonGrid.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = ItemPokemonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding.root)
     }
 
-    override fun onBindViewHolder(holder: AdapterPokemonGrid.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         mValues?.let {
             holder.tvName.text = "Name:\n${it[position].name}"
 
@@ -31,8 +31,7 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
 
             holder.tvWeight.text = "${it[position].weight} KG"
 
-            printImageWithGlide(context, it[position].image.image, holder.ivImage )
-
+            printImageWithGlide(context, it[position].image.image, holder.ivImage)
 
             holder.itemView.setOnClickListener { _ ->
                 cellClickListener.onCellClickListener(it[position])
@@ -44,7 +43,7 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
         return mValues?.size ?: 0
     }
 
-    inner class ViewHolder (mView: View): RecyclerView.ViewHolder(mView){
+    inner class ViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
         val tvName = binding.tvName
         val tvSpecie = binding.tvSpecie
         val tvWeight = binding.tvWeight
@@ -58,6 +57,6 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
     }
 }
 
-interface CellClickListener{
+interface CellClickListener {
     fun onCellClickListener(pokemon: PokemonDTO)
 }

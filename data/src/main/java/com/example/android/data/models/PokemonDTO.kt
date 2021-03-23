@@ -11,46 +11,45 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = Constants.TABLE_POKEMON)
 data class PokemonDTO(
-    var name: String,
-    //download image and save path in database
-    @SerializedName("sprites")
-    @Embedded
-    var image: PokemonImage,
-    @TypeConverters(PokemonStatsConverter::class)
-    var stats: List<PokemonStats>,
-    var weight: String,
-    @SerializedName("base_experience")
-    var baseExperience: String,
-    @PrimaryKey
-    var order: Int,
-    var height: String,
-    @TypeConverters(PokemonTypeConverter::class)
-    var types: List<PokemonType>
+        var name: String,
+        //download image and save path in database
+        @SerializedName("sprites")
+        @Embedded
+        var image: PokemonImage,
+        @TypeConverters(PokemonStatsConverter::class)
+        var stats: List<PokemonStats>,
+        var weight: String,
+        @SerializedName("base_experience")
+        var baseExperience: String,
+        @PrimaryKey
+        var order: Int,
+        var height: String,
+        @TypeConverters(PokemonTypeConverter::class)
+        var types: List<PokemonType>
 )
 
 data class PokemonType(
-    var slot: String,
-    var type: Type
+        var slot: String,
+        var type: Type
 )
-
 
 
 data class PokemonStats(
-    @SerializedName("base_stat")
-    var baseStat: String,
-    var stat: Stat
+        @SerializedName("base_stat")
+        var baseStat: String,
+        var stat: Stat
 )
 
 data class Type(
-    var name: String
+        var name: String
 )
 
 data class Stat(
-    var name: String
+        var name: String
 )
 
 data class PokemonImage(
-    @SerializedName("front_default")
-    var image: String
+        @SerializedName("front_default")
+        var image: String
 
 )
