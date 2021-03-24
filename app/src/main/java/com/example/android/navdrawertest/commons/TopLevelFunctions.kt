@@ -39,3 +39,4 @@ fun fromStatsToString(list: List<PokemonStats>): String {
 
     return str
 }
+

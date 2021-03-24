@@ -8,7 +8,9 @@ import com.example.android.data.models.ProfileData
 import com.example.android.navdrawertest.commons.BaseFragment
 import com.example.android.navdrawertest.commons.emptyString
 import com.example.android.navdrawertest.databinding.FragmentProfileBinding
+import com.example.android.navdrawertest.home_activity.profile.ui.components.DialogProfileData
 import com.example.android.navdrawertest.home_activity.profile.vm.ProfileViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileFragment : BaseFragment() {
@@ -45,14 +47,15 @@ class ProfileFragment : BaseFragment() {
 
 
     override fun loadListeners() {
-        binding.btnSave.setOnClickListener {
-            val name = binding.etName.text.toString().emptyString()
-            val surnameOne = binding.etSurnameOne.text.toString().emptyString()
-            val surnameTwo = binding.etSurnameTwo.text.toString().emptyString()
-            val postalAddress = binding.etPostalAdress.text.toString().emptyString()
-            presenter.saveProfileData(ProfileData(1, name, surnameOne, surnameTwo, postalAddress))
+        binding.btnShowDialogProfileData.setOnClickListener {
+            val dialogProfileData = activity?.let { activity ->
+                DialogProfileData(
+                        activity,
+                        presenter
+                )
+            }
+            dialogProfileData!!.setCancelable(false)
+            dialogProfileData!!.show()
         }
     }
-
-
 }
