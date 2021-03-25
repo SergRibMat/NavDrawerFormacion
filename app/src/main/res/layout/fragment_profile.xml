@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
-        android:text="Set Profile"
+        android:text="@string/button_set_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +23,11 @@
         android:layout_marginTop="28dp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="@dimen/textview_m"
         app:layout_constraintEnd_toEndOf="@+id/btn_show_dialog_profile_data"
         app:layout_constraintStart_toStartOf="@+id/btn_show_dialog_profile_data"
         app:layout_constraintTop_toBottomOf="@+id/btn_show_dialog_profile_data"
-        tools:text="Name" />
+        tools:text="@string/textview_name" />
 
     <TextView
         android:id="@+id/tv_postal_address"
@@ -36,12 +36,12 @@
         android:layout_marginTop="16dp"
         android:textColor="@color/black"
         android:gravity="center"
-        android:textSize="24dp"
+        android:textSize="@dimen/textview_m"
         app:layout_constraintEnd_toEndOf="@+id/tv_surname_two"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tv_surname_two"
         app:layout_constraintTop_toBottomOf="@+id/tv_surname_two"
-        tools:text="PostalCode" />
+        tools:text="@string/textview_postal_address" />
 
     <TextView
         android:id="@+id/tv_surname_one"
@@ -50,11 +50,11 @@
         android:layout_marginTop="16dp"
         android:textColor="@color/black"
         android:gravity="center"
-        android:textSize="24dp"
+        android:textSize="@dimen/textview_m"
         app:layout_constraintEnd_toEndOf="@+id/tv_name"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        tools:text="Surname One" />
+        tools:text="@string/textview_surname_one" />
 
     <TextView
         android:id="@+id/tv_surname_two"
@@ -63,11 +63,11 @@
         android:layout_marginTop="16dp"
         android:textColor="@color/black"
         android:gravity="center"
-        android:textSize="24dp"
+        android:textSize="@dimen/textview_m"
         app:layout_constraintEnd_toEndOf="@+id/tv_surname_one"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tv_surname_one"
         app:layout_constraintTop_toBottomOf="@+id/tv_surname_one"
-        tools:text="Surname Two" />
+        tools:text="@string/textview_surname_two" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

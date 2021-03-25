@@ -10,4 +10,23 @@
     <string name="menu_home">Home</string>
     <string name="menu_detail">Detail</string>
     <string name="menu_profile">Profile</string>
+
+    <string name="textview_name">Home</string>
+    <string name="textview_weight">Weight</string>
+    <string name="textview_stats">Stats</string>
+    <string name="textview_base_experience">Base Experience</string>
+    <string name="textview_order">Order</string>
+    <string name="textview_height">Height</string>
+    <string name="textview_type">Type</string>
+    <string name="textview_surname_one">Surname One</string>
+    <string name="textview_surname_two">Surname Two</string>
+    <string name="textview_postal_address">Postal Address</string>
+
+
+
+    <string name="button_set_profile">Set Profile</string>
+    <string name="button_save">Save</string>
+    <string name="button_cancel">Cancel</string>
+
+
 </resources>

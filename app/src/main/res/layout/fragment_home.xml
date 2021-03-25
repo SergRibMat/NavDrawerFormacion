@@ -7,8 +7,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/photos_grid"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/take_remaining_layout"
+        android:layout_height="@dimen/take_remaining_layout"
         android:orientation="vertical"
         android:padding="6dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -19,13 +19,5 @@
         app:spanCount="2"
         tools:itemCount="16"
         tools:listitem="@layout/item_pokemon" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="button"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

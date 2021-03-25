@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/iv_pokemon_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/imageview_detail_height"
             tools:src="@color/black" />
 
         <TextView
@@ -22,56 +22,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:text="nombre" />
+            android:textSize="@dimen/textview_m"
+            tools:text="@string/textview_name" />
 
         <TextView
             android:id="@+id/tv_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:text="Peso" />
+            android:textSize="@dimen/textview_m"
+            tools:text="@string/textview_weight" />
 
         <TextView
             android:id="@+id/tv_stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:text="stats" />
+            android:textSize="@dimen/textview_m"
+            tools:text="@string/textview_stats" />
 
         <TextView
             android:id="@+id/tv_base_experience"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:text="BaseExperience" />
+            android:textSize="@dimen/textview_m"
+            tools:text="@string/textview_base_experience" />
 
         <TextView
             android:id="@+id/tv_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:text="Order" />
+            android:textSize="@dimen/textview_m"
+            tools:text="@string/textview_order" />
 
         <TextView
             android:id="@+id/tv_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:text="Altura" />
+            android:textSize="@dimen/textview_m"
+            tools:text="@string/textview_height" />
 
         <TextView
             android:id="@+id/tv_types"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:text="Tipos" />
+            android:textSize="@dimen/textview_m"
+            tools:text="@string/textview_type" />
 
     </LinearLayout>
 </ScrollView>
