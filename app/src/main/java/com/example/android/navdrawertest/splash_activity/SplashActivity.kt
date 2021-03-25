@@ -30,7 +30,7 @@ class SplashActivity : BaseActivity() {
 
 
     override fun loadObservers() {
-        presenter.initMyActivity.observe(this, {
+        presenter.initMainActivity.observe(this, {
             if (it) {
                 startActivity<MainActivity>()
                 finish()

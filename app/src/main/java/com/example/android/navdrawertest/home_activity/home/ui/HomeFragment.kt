@@ -36,8 +36,6 @@ class HomeFragment : BaseFragment(), CellClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadObservers()
-
     }
 
     override fun loadObservers() {
@@ -53,7 +51,6 @@ class HomeFragment : BaseFragment(), CellClickListener {
     }
 
     override fun onCellClickListener(pokemon: PokemonDTO) {
-        Toast.makeText(context, "${pokemon.name}", Toast.LENGTH_SHORT).show()
         sharedPokemonVM.setPokemon(pokemon)
         findNavController().navigate(R.id.action_nav_home_to_nav_gallery)
 

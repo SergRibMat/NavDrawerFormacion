@@ -19,10 +19,10 @@ class MockInterceptor(private val application: Application) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var res: Response? = null
 
-        // TRANSACTIONS
+        // POKEMONS
         if (res == null) res =
 
-                getMockResponse("/pokemon.json", R.raw.pokemon, chain, responseCodeOK)
+                getMockResponse("pokemon/1", R.raw.pokemon, chain, responseCodeOK)
 
         return res ?: chain.proceed(chain.request())
     }

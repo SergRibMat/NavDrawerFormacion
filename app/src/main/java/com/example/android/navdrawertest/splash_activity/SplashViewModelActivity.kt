@@ -11,24 +11,25 @@ import kotlinx.coroutines.launch
 
 class SplashViewModelActivity(private val repository: PokemonRepository) : BaseViewModel() {
 
-    private var _initMyActivity = SingleLiveEvent<Boolean>()
-    val initMyActivity: LiveData<Boolean>
-        get() = _initMyActivity
+    private var _initMainActivity = SingleLiveEvent<Boolean>()
+    val initMainActivity: LiveData<Boolean>
+        get() = _initMainActivity
 
 
     fun loadPokemonIntoDatabase() {
         viewModelScope.launch(Dispatchers.IO) {
+
             for (id in 1..40) {
                 when (val result = repository.getPokemonsAndSave(id)) {
                     is ResultHandler.Success -> {
-                        showMessage(result.data)
+
                     }
                     else -> {
-                        setShowError(result)
+
                     }
                 }
                 if (id == 20) {
-                    _initMyActivity.postValue(true)
+                    _initMainActivity.postValue(true)
                 }
             }
         }
