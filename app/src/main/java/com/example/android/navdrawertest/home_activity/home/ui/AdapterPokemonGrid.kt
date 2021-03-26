@@ -22,6 +22,7 @@ class AdapterPokemonGrid(private var mValues: List<PokemonDTO>?,
         return ViewHolder(binding.root)
     }
 
+    //sets value to view objects
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         mValues?.let {
             holder.tvName.text = "Name:\n${it[position].name}"

@@ -38,11 +38,15 @@ class DialogProfileData(context: Context, private val presenter: ProfileViewMode
 
     fun loadListeners(){
         binding.btnSave.setOnClickListener {
+            //get text from EditTexts
             val name = binding.etName.text.toString().emptyString()
             val surnameOne = binding.etSurnameOne.text.toString().emptyString()
             val surnameTwo = binding.etSurnameTwo.text.toString().emptyString()
             val postalAddress = binding.etPostalAdress.text.toString().emptyString()
-            presenter.saveProfileData(ProfileData(1, name, surnameOne, surnameTwo, postalAddress))
+            //create object with EditText text
+            val profileData = ProfileData(1, name, surnameOne, surnameTwo, postalAddress)
+            //give object to viewmodel
+            presenter.saveProfileData(profileData)
             dismiss()
         }
 

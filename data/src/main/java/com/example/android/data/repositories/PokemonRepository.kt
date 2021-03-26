@@ -25,21 +25,18 @@ class PokemonRepository(private val api: IPokemonAPI, private val pokemonDB: Pok
     suspend fun getPokemonsAndSave(id: Int): ResultHandler<String> {
         //Call to API and save in Room
 
-        when (val result = safeApiCall(call = { api.getPokemons(id) })) {
+        return when (val result = safeApiCall(call = { api.getPokemons(id) })) {
             is ResultHandler.Success -> {
 
                 result.data.let {
-                    //here is the response
-
                     //Save data in Room
                     pokemonDB.pokemonDatabaseDao().savePokemon(it)
                 }
-                //It is not necessary to return nothing, magic is done with liveData in Room
-                return ResultHandler.Success("Successful update")
+                ResultHandler.Success("Successful update")
             }
-            is ResultHandler.GenericError -> return result
-            is ResultHandler.HttpError -> return result
-            is ResultHandler.NetworkError -> return result
+            is ResultHandler.GenericError -> result
+            is ResultHandler.HttpError -> result
+            is ResultHandler.NetworkError -> result
         }
     }
 

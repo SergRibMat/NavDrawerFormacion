@@ -8,7 +8,7 @@ import com.example.android.data.models.PokemonStats
 import com.example.android.data.models.PokemonType
 import com.example.android.navdrawertest.R
 
-
+//draws given image in given imageView
 fun printImageWithGlide(context: Context, img: String, imgView: ImageView) =
         Glide.with(context)
                 .load(img)

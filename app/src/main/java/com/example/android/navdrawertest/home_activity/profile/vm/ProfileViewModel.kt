@@ -20,5 +20,10 @@ class ProfileViewModel(private val repository: PokemonRepository) : BaseViewMode
         }
     }
 
-    private fun checkIfLiveDataNull(profileData: ProfileData): ProfileData = if (this.profileData.value == null) profileData else profileData.noDataFilter(this.profileData.value!!)
+    //Checks if livedata is null
+    private fun checkIfLiveDataNull(profileData: ProfileData): ProfileData =
+            if (this.profileData.value == null)
+                profileData
+            else
+                profileData.noDataFilter(this.profileData.value!!)
 }

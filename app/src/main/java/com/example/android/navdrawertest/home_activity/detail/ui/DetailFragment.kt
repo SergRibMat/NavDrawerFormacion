@@ -46,6 +46,7 @@ class DetailFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val pokemon = sharedPokemonVM.pokemon.value
         pokemon?.let {
+            //set text from pokemon object
             binding.tvName.text = "Pokemon name: ${it.name}"
             binding.tvBaseExperience.text = "Base Experience: ${it.baseExperience}"
             printImageWithGlide(requireContext(), it.image.image, binding.ivPokemonImage)

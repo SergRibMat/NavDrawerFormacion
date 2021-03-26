@@ -7,10 +7,8 @@ import retrofit2.http.Path
 
 
 interface IPokemonAPI {
+    //get single pokemon with ID
     @GET("pokemon/{id}")
     suspend fun getPokemons(@Path("id") pokemonId: Int): Response<PokemonDTO>
-
-    //@GET("pokemoncount.json")
-    //suspend fun getPokemonCount(): Response<PokemonCount>
 
 }

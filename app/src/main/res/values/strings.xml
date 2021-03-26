@@ -11,7 +11,7 @@
     <string name="menu_detail">Detail</string>
     <string name="menu_profile">Profile</string>
 
-    <string name="textview_name">Home</string>
+    <string name="textview_name">Name</string>
     <string name="textview_weight">Weight</string>
     <string name="textview_stats">Stats</string>
     <string name="textview_base_experience">Base Experience</string>

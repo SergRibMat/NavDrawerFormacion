@@ -9,13 +9,14 @@ import com.example.android.data.utils.PokemonStatsConverter
 import com.example.android.data.utils.PokemonTypeConverter
 import com.google.gson.annotations.SerializedName
 
+//Json and Room object
 @Entity(tableName = Constants.TABLE_POKEMON)
 data class PokemonDTO(
         var name: String,
-        //download image and save path in database
         @SerializedName("sprites")
         @Embedded
         var image: PokemonImage,
+        //transforms List into string with given class and vice versa
         @TypeConverters(PokemonStatsConverter::class)
         var stats: List<PokemonStats>,
         var weight: String,
@@ -24,6 +25,7 @@ data class PokemonDTO(
         @PrimaryKey
         var order: Int,
         var height: String,
+        //transforms List into string with given class and vice versa
         @TypeConverters(PokemonTypeConverter::class)
         var types: List<PokemonType>
 )

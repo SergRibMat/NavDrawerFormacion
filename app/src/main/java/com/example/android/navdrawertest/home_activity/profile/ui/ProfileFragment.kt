@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.android.data.models.ProfileData
+import com.example.android.navdrawertest.R
 import com.example.android.navdrawertest.commons.BaseFragment
 import com.example.android.navdrawertest.commons.emptyString
 import com.example.android.navdrawertest.databinding.FragmentProfileBinding
@@ -35,12 +36,14 @@ class ProfileFragment : BaseFragment() {
 
 
     override fun loadObservers() {
+        //update view on change
         presenter.profileData.observe(viewLifecycleOwner, {
             it?.apply {
-                binding.tvName.text = "Name: $name"
-                binding.tvSurnameOne.text = "Surname One: $surnameOne"
-                binding.tvSurnameTwo.text = "Surname Two: $surnameTwo"
-                binding.tvPostalAddress.text = "Postal Address: $postalAddress"
+                //update view with it data
+                binding.tvName.text = "${getString(R.string.textview_name)} $name"
+                binding.tvSurnameOne.text = "${getString(R.string.textview_surname_one)} $surnameOne"
+                binding.tvSurnameTwo.text = "${getString(R.string.textview_surname_two)} $surnameTwo"
+                binding.tvPostalAddress.text = "${getString(R.string.textview_postal_address)} $postalAddress"
             }
         })
     }
@@ -48,6 +51,7 @@ class ProfileFragment : BaseFragment() {
 
     override fun loadListeners() {
         binding.btnShowDialogProfileData.setOnClickListener {
+            //create dialog object
             val dialogProfileData = activity?.let { activity ->
                 DialogProfileData(
                         activity,

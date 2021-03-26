@@ -2,8 +2,10 @@ package com.example.android.navdrawertest.commons
 
 import com.example.android.data.models.ProfileData
 
+
 fun String.emptyString(): String = if (this.isNullOrEmpty()) Constants.NO_DATA else this
 
+//overrides empty data with database data
 fun ProfileData.noDataFilter(profileData: ProfileData): ProfileData{
 
     if(name == Constants.NO_DATA){

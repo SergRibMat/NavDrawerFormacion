@@ -14,8 +14,11 @@ import com.example.android.data.utils.PokemonTypeConverter
 @Database(entities = [PokemonDTO::class, ProfileData::class], version = 2)
 @TypeConverters(PokemonStatsConverter::class, PokemonTypeConverter::class)
 abstract class PokemonDatabase : RoomDatabase() {
+
+    //call when accessing database
     abstract fun pokemonDatabaseDao(): PokemonDatabaseDao
 
+    //database creation
     companion object {
         @Volatile
         private var INSTANCE: PokemonDatabase? = null

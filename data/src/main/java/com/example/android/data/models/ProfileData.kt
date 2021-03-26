@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.android.data.commons.Constants
 
+//Json and Room object
 @Entity(tableName = Constants.TABLE_PROFILE_DATA)
 data class ProfileData(
         @PrimaryKey
