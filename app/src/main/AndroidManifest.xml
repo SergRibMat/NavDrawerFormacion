@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.navdrawertest">
+    package="com.example.android.navdrawerformacion">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".commons.App"
+        android:name="com.example.android.navdrawerformacion.commons.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NavDrawerTest">
         <activity
-            android:name=".splash_activity.SplashActivity"
+            android:name="com.example.android.navdrawerformacion.splash_activity.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.NavDrawerTest.NoActionBar">
             <intent-filter>
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home_activity.MainActivity"
+        <activity android:name="com.example.android.navdrawerformacion.home_activity.MainActivity"
             android:theme="@style/Theme.NavDrawerTest.NoActionBar"/>
     </application>
 
