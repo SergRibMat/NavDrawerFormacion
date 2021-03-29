@@ -29,12 +29,8 @@ class SplashViewModelActivity(private val repository: PokemonRepository) : BaseV
                         //when error API call
                     }
                 }
-                //execute when X number of calls have been made
-                if (id == 20) {
-                    //change value to start Main Activity
-                    _initMainActivity.postValue(true)
-                }
             }
+            _initMainActivity.postValue(true)
         }
     }
 }
